@@ -9,6 +9,7 @@ require("./startup/routes")(app);
 require("./startup/db")();
 require("./startup/config")();
 require("./startup/validation")();
+require("./startup/prod")(app);
 
 //Port setting, use export PORT=""
 const port = process.env.PORT || 3000;
