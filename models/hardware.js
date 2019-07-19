@@ -37,7 +37,7 @@ function validateHardware(hardware) {
       .min(5)
       .max(50)
       .required(),
-    genreId: Joi.objectid().required(),
+    typeId: Joi.objectid().required(),
     numberInStock: Joi.number()
       .min(0)
       .required(),
