@@ -1,11 +1,11 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
-const { TypeSchema } = require("./type");
+const { typeSchema } = require("./type");
 
 const Hardware = mongoose.model(
   "Hardware",
   new mongoose.Schema({
-    title: {
+    name: {
       type: String,
       required: true,
       trim: true,
@@ -13,7 +13,7 @@ const Hardware = mongoose.model(
       maxlength: 255
     },
     type: {
-      type: TypeSchema,
+      type: typeSchema,
       required: true
     },
     numberInStock: {
@@ -33,7 +33,7 @@ const Hardware = mongoose.model(
 
 function validateHardware(hardware) {
   const schema = {
-    title: Joi.string()
+    name: Joi.string()
       .min(5)
       .max(50)
       .required(),

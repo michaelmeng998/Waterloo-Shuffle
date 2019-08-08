@@ -7,6 +7,7 @@ const rentals = require("../routes/rentals");
 const users = require("../routes/users");
 const auth = require("../routes/auth");
 const types = require("../routes/types");
+const hardware = require("../routes/hardwares");
 
 const returns = require("../routes/returns");
 const error = require("../middleware/error");
@@ -22,6 +23,7 @@ function routes(app) {
   app.use("/api/users", users);
   app.use("/api/auth", auth);
   app.use("/api/types", types);
+  app.use("/api/hardware", hardware);
 
   app.use("/api/returns", returns);
   app.use(error);

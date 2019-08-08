@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const movies = await movies.find().sort("name");
+  const movies = await Movie.find().sort("name");
   res.send(movies);
 });
 

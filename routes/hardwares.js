@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 
   //new collection, using relationships
   const hardware = new Hardware({
-    title: req.body.title,
+    name: req.body.name,
     type: {
       _id: type._id,
       name: type.name
@@ -44,7 +44,7 @@ router.put("/:id", async (req, res) => {
   const hardware = await Hardware.findByIdAndUpdate(
     req.params.id,
     {
-      title: req.body.title,
+      name: req.body.name,
       type: {
         _id: type._id,
         name: type.name

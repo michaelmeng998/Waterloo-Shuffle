@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
     return res.status(400).send("User already registered.");
   }
   //reset user
-  user = new User(_.pick(req.body, ["name", "email", "password"]));
+  user = new User(_.pick(req.body, ["name", "username", "email", "password"]));
   const salt = await bycrypt.genSalt(10);
   //hashing password and setting it to original
   user.password = await bycrypt.hash(user.password, salt);
@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
   //get new obejct with name and email and send
   res
     .header("x-auth-token", token)
-    .send(_.pick(user, ["_id", "name", "email"]));
+    .send(_.pick(user, ["_id", "name", "username", "email"]));
 });
 
 module.exports = router;
